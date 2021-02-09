@@ -3,7 +3,7 @@ import spotipy
 scopes = 'user-follow-read user-follow-modify playlist-read-collaborative playlist-read-private playlist-modify-public playlist-modify-private'
 
 def main():
-    spotify = spotipy.Spotify(auth_manager=spotipy.SpotifyOAuth(scope=scopes))
+    spotify = spotipy.Spotify(auth_manager=spotipy.SpotifyOAuth(scope=scopes, redirect_uri="http://localhost:8080"))
     tokyo = spotify.artist('5TbLOwv8BNnik3f03NZJlt') # Get artist page
     tokyo_albums = spotify.artist_albums(tokyo['id']) # Get albums from artist page (uses ID)
     tokyo_songs = [] # Make an empty list of songs
